@@ -2,7 +2,6 @@ class FacetFiltersForm extends HTMLElement {
   constructor() {
     super();
     this.onActiveFilterClick = this.onActiveFilterClick.bind(this);
-    console.log(this);
 
     this.debouncedOnSubmit = debounce((event) => {
       this.onSubmitHandler(event);
@@ -166,6 +165,7 @@ class FacetFiltersForm extends HTMLElement {
     event.preventDefault();
     FacetFiltersForm.toggleActiveFacets();
     const url = event.currentTarget.href.indexOf('?') == -1 ? '' : event.currentTarget.href.slice(event.currentTarget.href.indexOf('?') + 1);
+    console.log(url);
     FacetFiltersForm.renderPage(url);
   }
 }
