@@ -157,6 +157,7 @@ class FacetFiltersForm extends HTMLElement {
   onSubmitHandler(event) {
     event.preventDefault();
     const formData = new FormData(event.target.closest('form'));
+    console.log(formData);
     const searchParams = new URLSearchParams(formData).toString();
     FacetFiltersForm.renderPage(searchParams, event);
   }
@@ -165,7 +166,6 @@ class FacetFiltersForm extends HTMLElement {
     event.preventDefault();
     FacetFiltersForm.toggleActiveFacets();
     const url = event.currentTarget.href.indexOf('?') == -1 ? '' : event.currentTarget.href.slice(event.currentTarget.href.indexOf('?') + 1);
-    console.log(url);
     FacetFiltersForm.renderPage(url);
   }
 }
