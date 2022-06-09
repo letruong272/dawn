@@ -57,6 +57,7 @@ class FacetFiltersForm extends HTMLElement {
       .then(response => response.text())
       .then((responseText) => {
         const html = responseText;
+      console.log(html)
         FacetFiltersForm.filterData = [...FacetFiltersForm.filterData, { html, url }];
         FacetFiltersForm.renderFilters(html, event);
         FacetFiltersForm.renderProductGridContainer(html);
@@ -72,7 +73,6 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   static renderProductGridContainer(html) {
-    console.log(new DOMParser().parseFromString(html, 'text/html').getElementById('ProductGridContainer').innerHTML)
     document.getElementById('ProductGridContainer').innerHTML = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductGridContainer').innerHTML;
   }
 
