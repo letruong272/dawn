@@ -31,7 +31,6 @@ class FacetFiltersForm extends HTMLElement {
   static renderPage(searchParams, event, updateURLHash = true) {
     FacetFiltersForm.searchParamsPrev = searchParams;
     const sections = FacetFiltersForm.getSections();
-    console.log(sections)
     const countContainer = document.getElementById('ProductCount');
     const countContainerDesktop = document.getElementById('ProductCountDesktop');
     document.getElementById('ProductGridContainer').querySelector('.collection').classList.add('loading');
@@ -58,7 +57,6 @@ class FacetFiltersForm extends HTMLElement {
       .then(response => response.text())
       .then((responseText) => {
         const html = responseText;
-      console.log(html)
         FacetFiltersForm.filterData = [...FacetFiltersForm.filterData, { html, url }];
         FacetFiltersForm.renderFilters(html, event);
         FacetFiltersForm.renderProductGridContainer(html);
@@ -159,8 +157,6 @@ class FacetFiltersForm extends HTMLElement {
     event.preventDefault();
     const formData = new FormData(event.target.closest('form'));
     const searchParams = new URLSearchParams(formData).toString();
-    console.log(formData);
-    console.log(searchParams);
     FacetFiltersForm.renderPage(searchParams, event);
   }
 
