@@ -7,7 +7,7 @@ class FacetFiltersForm extends HTMLElement {
       this.onSubmitHandler(event);
     }, 500);
 
-    //this.querySelector('form').addEventListener('input', this.debouncedOnSubmit.bind(this));
+    this.querySelector('form').addEventListener('input', this.debouncedOnSubmit.bind(this));
 
     const facetWrapper = this.querySelector('#FacetsWrapperDesktop');
     if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
@@ -155,9 +155,9 @@ class FacetFiltersForm extends HTMLElement {
 
   onSubmitHandler(event) {
     event.preventDefault();
-    const formData = new FormData(event.target.closest('form'));
-    const searchParams = new URLSearchParams(formData).toString();
-    FacetFiltersForm.renderPage(searchParams, event);
+//     const formData = new FormData(event.target.closest('form'));
+//     const searchParams = new URLSearchParams(formData).toString();
+//     FacetFiltersForm.renderPage(searchParams, event);
   }
 
   onActiveFilterClick(event) {
